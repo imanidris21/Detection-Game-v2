@@ -1,0 +1,20 @@
+# Core dependencies
+streamlit
+pandas
+sqlalchemy
+pillow
+plotly
+
+# Database dependencies
+psycopg2-binary
+
+# AI/ML dependencies
+torch
+torchvision
+numpy
+
+# Additional packages
+matplotlib
+scikit-learn
+gdown
+
