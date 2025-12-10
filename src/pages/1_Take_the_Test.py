@@ -346,7 +346,10 @@ if st.session_state.test_stage == "test":
     .stImage {
         position: relative !important;
         display: inline-block !important;
+        margin-left: 100px !important;  /* Move image and frame to the right */
     }
+
+
 
     .stImage > img {
         max-height: 10vh !important;
@@ -358,10 +361,10 @@ if st.session_state.test_stage == "test":
     .stImage::after {
         content: "";
         position: absolute !important;
-        top: -10px !important;
-        left: -10px !important;
-        width: calc(100% + 20px) !important;
-        height: calc(100% + 20px) !important;
+        top: -15px !important;
+        left: -15px !important;
+        width: calc(100% + 30px) !important;
+        height: calc(100% + 30px) !important;
         background-image: url("https://raw.githubusercontent.com/imanidris21/Detection-Game-v2/main/src/assets/photo_frame.png") !important;
         background-size: contain !important;
         background-repeat: no-repeat !important;
@@ -387,16 +390,16 @@ if st.session_state.test_stage == "test":
         color: #0066cc !important;
     }
 
-    /* Style for primary (selected) buttons */
+    /* Style for primary (selected) buttons - Gold "Show Answer" button */
     .stButton > button[kind="primary"] {
-        background-color: #0066cc !important;
-        border-color: #0066cc !important;
+        background-color: #cfb161 !important;
+        border-color: #cfb161 !important;
         color: white !important;
     }
 
     .stButton > button[kind="primary"]:hover {
-        background-color: #0052a3 !important;
-        border-color: #0052a3 !important;
+        background-color: #b59857 !important;
+        border-color: #b59857 !important;
         color: white !important;
     }
 
@@ -422,11 +425,11 @@ if st.session_state.test_stage == "test":
     }
 
     .stCheckbox {
-        margin: 0.5rem 0 !important;
+        margin-left: 100px !important;
     }
 
     .stProgress {
-        margin: 0.5rem 0 !important;
+        margin-left: 100px !important;
     }
 
     /* Hide unnecessary margins */
@@ -519,7 +522,7 @@ if st.session_state.test_stage == "test":
         # Progress indicator on top of image
         current_trial = idx + 1
         total_trials = len(st.session_state.trial_order)
-        st.write(f"**Image {current_trial} of {total_trials}**")
+        st.markdown(f'<p style="margin-left: 100px; font-weight: bold;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
 
         try:
             pil = Image.open(img_path)
