@@ -936,7 +936,7 @@ if st.session_state.test_stage == "test":
 # =====================================================
 
 if st.session_state.test_stage == "results":
-    st.title("Game Complete! 🎯")
+    st.title("Detection Quest Complete!")
 
     # Mark participant as finished
     mark_finished(engine, st.session_state.participant_id)
