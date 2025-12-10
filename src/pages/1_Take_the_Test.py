@@ -580,19 +580,21 @@ elif st.session_state.test_stage == "test":
 
 
         # 3. Reasoning box
-        st.markdown("**Why do you think so?**")
-        reasoning = st.text_area(
-            "",
-            placeholder="What visual cues made you decide?",
-            height=40,
-            label_visibility="collapsed"
-        )
+        # st.markdown("**Why do you think so?**")
+        # reasoning = st.text_area(
+        #     "",
+        #     placeholder="What visual cues made you decide?",
+        #     height=40,
+        #     label_visibility="collapsed"
+        # )
+        reasoning = ""  # Set empty default since input is commented out
 
         # 4. Confidence slider
-        st.markdown("**How confident are you?**")
-        conf = st.slider("", 0, 100, 50,
-                       label_visibility="collapsed",
-                       help="Rate your confidence level")
+        # st.markdown("**How confident are you?**")
+        # conf = st.slider("", 0, 100, 50,
+        #                label_visibility="collapsed",
+        #                help="Rate your confidence level")
+        conf = 50  # Set default confidence since slider is commented out
 
         # 5. Show answer button
         show_answer_disabled = st.session_state[choice_key] is None
@@ -640,260 +642,260 @@ elif st.session_state.test_stage == "test":
 # =====================================================
 
 # Survey section commented out for exhibition version
-"""
-elif st.session_state.test_stage == "survey":
-    st.title("Post-Test Survey")
-    st.write("Thank you for completing the test! Please answer a few questions about your experience.")
 
-    with st.form("post_test_survey"):
-        # Section 1: Background
-        st.subheader("Section 1: Background")
+# elif st.session_state.test_stage == "survey":
+#     st.title("Post-Test Survey")
+#     st.write("Thank you for completing the test! Please answer a few questions about your experience.")
 
-        col1, col2 = st.columns(2)
-        with col1:
-            # Question 1: How would you describe yourself?
-            user_type = st.selectbox(
-                "1. How would you describe yourself?",
-                ["Professional artist", "Hobbyist / art student", "Professional designer",
-                 "AI researcher or developer", "Other"],
-                index=None
-            )
+#     with st.form("post_test_survey"):
+#         # Section 1: Background
+#         st.subheader("Section 1: Background")
 
-            # Question 3: Art mediums (optional for artists/designers)
-            art_mediums = st.multiselect(
-                "3. [If artist/designer] What art mediums do you work with?",
-                ["Digital art", "Traditional painting", "Sketching", "Photography",
-                 "Mixed media", "None/Not applicable", "Other"]
-            )
+#         col1, col2 = st.columns(2)
+#         with col1:
+#             # Question 1: How would you describe yourself?
+#             user_type = st.selectbox(
+#                 "1. How would you describe yourself?",
+#                 ["Professional artist", "Hobbyist / art student", "Professional designer",
+#                  "AI researcher or developer", "Other"],
+#                 index=None
+#             )
 
-            # Add text input for "Other" art mediums
-            other_art_medium = ""
-            if "Other" in art_mediums:
-                other_art_medium = st.text_input("Please specify other art mediums:", key="other_art_medium")
+#             # Question 3: Art mediums (optional for artists/designers)
+#             art_mediums = st.multiselect(
+#                 "3. [If artist/designer] What art mediums do you work with?",
+#                 ["Digital art", "Traditional painting", "Sketching", "Photography",
+#                  "Mixed media", "None/Not applicable", "Other"]
+#             )
 
-        with col2:
-            # Question 2: Years of experience (optional for artists/designers)
-            years_experience = st.selectbox(
-                "2. [If artist/designer] How many years of creative experience do you have?",
-                ["Less than 1 year", "1-3 years", "4-7 years", "8-15 years", "15+ years"],
-                index=None
-            )
+#             # Add text input for "Other" art mediums
+#             other_art_medium = ""
+#             if "Other" in art_mediums:
+#                 other_art_medium = st.text_input("Please specify other art mediums:", key="other_art_medium")
 
-            # Question 4: AI familiarity
-            ai_familiarity = st.selectbox(
-                "4. How familiar are you with AI art tools (e.g., Midjourney, DALL-E)?",
-                ["Never used AI art tools", "Used them a few times", "Regular user"],
-                index=None
-            )
+#         with col2:
+#             # Question 2: Years of experience (optional for artists/designers)
+#             years_experience = st.selectbox(
+#                 "2. [If artist/designer] How many years of creative experience do you have?",
+#                 ["Less than 1 year", "1-3 years", "4-7 years", "8-15 years", "15+ years"],
+#                 index=None
+#             )
 
-        # Question 5: Frequency of seeing AI art
-        ai_frequency = st.select_slider(
-            "5. How often do you see AI-generated art online?",
-            options=["Never", "Rarely", "Sometimes", "Often", "Very frequently"]
-        )
+#             # Question 4: AI familiarity
+#             ai_familiarity = st.selectbox(
+#                 "4. How familiar are you with AI art tools (e.g., Midjourney, DALL-E)?",
+#                 ["Never used AI art tools", "Used them a few times", "Regular user"],
+#                 index=None
+#             )
 
-        # Section 2: Detection
-        st.subheader("Section 2: Detection")
+#         # Question 5: Frequency of seeing AI art
+#         ai_frequency = st.select_slider(
+#             "5. How often do you see AI-generated art online?",
+#             options=["Never", "Rarely", "Sometimes", "Often", "Very frequently"]
+#         )
 
-        col3, col4 = st.columns(2)
-        with col3:
-            # Question 6: Difficulty
-            difficulty = st.select_slider(
-                "6. How difficult did you find distinguishing AI vs human artworks?",
-                options=["Very easy", "Easy", "Moderate", "Difficult", "Very difficult"]
-            )
+#         # Section 2: Detection
+#         st.subheader("Section 2: Detection")
 
-        with col4:
-            # Question 8: Hardest styles
-            hardest_styles = st.multiselect(
-                "8. Which art styles were hardest to classify? (Select all that apply)",
-                ["Abstract art", "Paintings", "Anime/illustrations", "Sketches"]
-            )
+#         col3, col4 = st.columns(2)
+#         with col3:
+#             # Question 6: Difficulty
+#             difficulty = st.select_slider(
+#                 "6. How difficult did you find distinguishing AI vs human artworks?",
+#                 options=["Very easy", "Easy", "Moderate", "Difficult", "Very difficult"]
+#             )
 
-        # Question 7: Visual cues
-        visual_cues = st.multiselect(
-            "7. What visual cues help you identify AI-generated content? (Select all that apply)",
-            ["Content/Subject matter", "Unusual lighting or shadows", "Anatomy issues (e.g., hands, faces)",
-             "Texture/brushstrokes", "Composition or perspective", "Unnatural colours / saturation",
-             "Repetitive patterns", "Text/writing artifacts", "Technical skill displayed",
-             "Level of detail/smoothness", "Overall 'uncanny' feeling", "Other"]
-        )
+#         with col4:
+#             # Question 8: Hardest styles
+#             hardest_styles = st.multiselect(
+#                 "8. Which art styles were hardest to classify? (Select all that apply)",
+#                 ["Abstract art", "Paintings", "Anime/illustrations", "Sketches"]
+#             )
 
-        # Add text input for "Other" visual cues
-        other_visual_cue = ""
-        if "Other" in visual_cues:
-            other_visual_cue = st.text_input("Please specify other visual cues:", key="other_visual_cue")
+#         # Question 7: Visual cues
+#         visual_cues = st.multiselect(
+#             "7. What visual cues help you identify AI-generated content? (Select all that apply)",
+#             ["Content/Subject matter", "Unusual lighting or shadows", "Anatomy issues (e.g., hands, faces)",
+#              "Texture/brushstrokes", "Composition or perspective", "Unnatural colours / saturation",
+#              "Repetitive patterns", "Text/writing artifacts", "Technical skill displayed",
+#              "Level of detail/smoothness", "Overall 'uncanny' feeling", "Other"]
+#         )
 
-        # Section 3: Platform Experience & Concerns
-        st.subheader("Section 3: Platform Experience & Concerns")
+#         # Add text input for "Other" visual cues
+#         other_visual_cue = ""
+#         if "Other" in visual_cues:
+#             other_visual_cue = st.text_input("Please specify other visual cues:", key="other_visual_cue")
 
-        col5, col6 = st.columns(2)
-        with col5:
-            # Question 9: Importance of labeling
-            labeling_importance = st.selectbox(
-                "9. How important is it that AI artworks be clearly labelled?",
-                ["Extremely important", "Very important", "Somewhat important",
-                 "Not very important", "Not important at all"],
-                index=None
-            )
+#         # Section 3: Platform Experience & Concerns
+#         st.subheader("Section 3: Platform Experience & Concerns")
 
-            # Question 13: Encountered unlabeled AI
-            encountered_unlabeled = st.selectbox(
-                "13. Have you encountered unlabelled AI artworks presented as human-created?",
-                ["Yes, frequently", "Yes, occasionally", "Yes, rarely", "No, never", "Unsure"],
-                index=None
-            )
+#         col5, col6 = st.columns(2)
+#         with col5:
+#             # Question 9: Importance of labeling
+#             labeling_importance = st.selectbox(
+#                 "9. How important is it that AI artworks be clearly labelled?",
+#                 ["Extremely important", "Very important", "Somewhat important",
+#                  "Not very important", "Not important at all"],
+#                 index=None
+#             )
 
-        with col6:
-            # Question 15: Value of detection
-            detection_value = st.selectbox(
-                "15. If online platforms had reliable AI detection and labeling, how valuable would this be?",
-                ["Very valuable", "Somewhat valuable", "Not valuable", "Unsure"],
-                index=None
-            )
+#             # Question 13: Encountered unlabeled AI
+#             encountered_unlabeled = st.selectbox(
+#                 "13. Have you encountered unlabelled AI artworks presented as human-created?",
+#                 ["Yes, frequently", "Yes, occasionally", "Yes, rarely", "No, never", "Unsure"],
+#                 index=None
+#             )
 
-        # Question 14: Concerns
-        concerns = st.multiselect(
-            "14. What concerns do you have about AI-generated art? (Select top 3)",
-            ["AI training on work without permission", "Difficulty proving originality",
-             "Copyright concerns", "Devaluation of human creativity",
-             "AI content flooding platforms", "Other"]
-        )
+#         with col6:
+#             # Question 15: Value of detection
+#             detection_value = st.selectbox(
+#                 "15. If online platforms had reliable AI detection and labeling, how valuable would this be?",
+#                 ["Very valuable", "Somewhat valuable", "Not valuable", "Unsure"],
+#                 index=None
+#             )
 
-        # Add text input for "Other" concerns
-        other_concern = ""
-        if "Other" in concerns:
-            other_concern = st.text_input("Please specify other concerns:", key="other_concern")
+#         # Question 14: Concerns
+#         concerns = st.multiselect(
+#             "14. What concerns do you have about AI-generated art? (Select top 3)",
+#             ["AI training on work without permission", "Difficulty proving originality",
+#              "Copyright concerns", "Devaluation of human creativity",
+#              "AI content flooding platforms", "Other"]
+#         )
 
-        # Section 4: Ethics & Impact (Optional for Artists)
-        st.subheader("Section 4: Ethics & Impact")
+#         # Add text input for "Other" concerns
+#         other_concern = ""
+#         if "Other" in concerns:
+#             other_concern = st.text_input("Please specify other concerns:", key="other_concern")
 
-        col7, col8 = st.columns(2)
-        with col7:
-            # Question 16: Impact on visibility (optional for all user types)
-            visibility_impact = st.selectbox(
-                "16. [If artist/designer] How has AI affected your work's visibility on social media?",
-                ["Significantly decreased", "Somewhat decreased", "No change",
-                 "Somewhat increased", "Significantly increased", "Unsure", "Not applicable"],
-                index=None
-            )
+#         # Section 4: Ethics & Impact (Optional for Artists)
+#         st.subheader("Section 4: Ethics & Impact")
 
-        with col8:
-            # Placeholder for layout balance
-            st.write("")
+#         col7, col8 = st.columns(2)
+#         with col7:
+#             # Question 16: Impact on visibility (optional for all user types)
+#             visibility_impact = st.selectbox(
+#                 "16. [If artist/designer] How has AI affected your work's visibility on social media?",
+#                 ["Significantly decreased", "Somewhat decreased", "No change",
+#                  "Somewhat increased", "Significantly increased", "Unsure", "Not applicable"],
+#                 index=None
+#             )
 
-        # Section 5: Reflection
-        st.subheader("Section 5: Reflection")
+#         with col8:
+#             # Placeholder for layout balance
+#             st.write("")
 
-        # Question 18: Emotions
-        emotions = st.multiselect(
-            "18. What emotions did you feel realizing some images were AI-generated?",
-            ["Surprise", "Frustration", "Curiosity", "Indifference", "Other"]
-        )
+#         # Section 5: Reflection
+#         st.subheader("Section 5: Reflection")
 
-        # Add text input for "Other" emotions
-        other_emotion = ""
-        if "Other" in emotions:
-            other_emotion = st.text_input("Please specify other emotions:", key="other_emotion")
+#         # Question 18: Emotions
+#         emotions = st.multiselect(
+#             "18. What emotions did you feel realizing some images were AI-generated?",
+#             ["Surprise", "Frustration", "Curiosity", "Indifference", "Other"]
+#         )
 
-        # Question 19: Additional comments
-        additional_comments = st.text_area(
-            "19. Do you have any additional comments you want to add? (Optional)",
-            placeholder="Feel free to share any thoughts, observations, or feedback..."
-        )
+#         # Add text input for "Other" emotions
+#         other_emotion = ""
+#         if "Other" in emotions:
+#             other_emotion = st.text_input("Please specify other emotions:", key="other_emotion")
 
-        submitted = st.form_submit_button("Complete Survey", type="primary")
+#         # Question 19: Additional comments
+#         additional_comments = st.text_area(
+#             "19. Do you have any additional comments you want to add? (Optional)",
+#             placeholder="Feel free to share any thoughts, observations, or feedback..."
+#         )
 
-        if submitted:
-            # Validate required fields
-            validation_errors = []
+#         submitted = st.form_submit_button("Complete Survey", type="primary")
 
-            if user_type is None:
-                validation_errors.append("Please select how you would describe yourself.")
+#         if submitted:
+#             # Validate required fields
+#             validation_errors = []
 
-            # Note: years_experience is optional for artist/designer types
+#             if user_type is None:
+#                 validation_errors.append("Please select how you would describe yourself.")
 
-            if ai_familiarity is None:
-                validation_errors.append("Please select your familiarity with AI art tools.")
+#             # Note: years_experience is optional for artist/designer types
 
-            if ai_frequency is None:
-                validation_errors.append("Please select how often you see AI-generated art online.")
+#             if ai_familiarity is None:
+#                 validation_errors.append("Please select your familiarity with AI art tools.")
 
-            if difficulty is None:
-                validation_errors.append("Please select how difficult you found distinguishing AI vs human artworks.")
+#             if ai_frequency is None:
+#                 validation_errors.append("Please select how often you see AI-generated art online.")
 
-            if labeling_importance is None:
-                validation_errors.append("Please select how important AI artwork labeling is to you.")
+#             if difficulty is None:
+#                 validation_errors.append("Please select how difficult you found distinguishing AI vs human artworks.")
 
-            if encountered_unlabeled is None:
-                validation_errors.append("Please select whether you have encountered unlabelled AI artworks.")
+#             if labeling_importance is None:
+#                 validation_errors.append("Please select how important AI artwork labeling is to you.")
 
-            if detection_value is None:
-                validation_errors.append("Please select how valuable reliable AI detection would be.")
+#             if encountered_unlabeled is None:
+#                 validation_errors.append("Please select whether you have encountered unlabelled AI artworks.")
 
-            # Note: visibility_impact is optional for artist/designer types
+#             if detection_value is None:
+#                 validation_errors.append("Please select how valuable reliable AI detection would be.")
 
-            # Show validation errors if any exist
-            if validation_errors:
-                st.error("Please complete all required fields:")
-                for error in validation_errors:
-                    st.error(f"• {error}")
-            else:
-                # Process "Other" responses by combining them with the selections
+#             # Note: visibility_impact is optional for artist/designer types
 
-                # Handle user type
-                final_user_type = user_type
+#             # Show validation errors if any exist
+#             if validation_errors:
+#                 st.error("Please complete all required fields:")
+#                 for error in validation_errors:
+#                     st.error(f"• {error}")
+#             else:
+#                 # Process "Other" responses by combining them with the selections
 
-                # Handle art mediums - replace "Other" with custom text
-                final_art_mediums = art_mediums.copy() if isinstance(art_mediums, list) else [art_mediums]
-                if "Other" in final_art_mediums and other_art_medium:
-                    final_art_mediums.remove("Other")
-                    final_art_mediums.append(other_art_medium)
+#                 # Handle user type
+#                 final_user_type = user_type
 
-                # Handle visual cues - replace "Other" with custom text
-                final_visual_cues = visual_cues.copy() if isinstance(visual_cues, list) else [visual_cues]
-                if "Other" in final_visual_cues and other_visual_cue:
-                    final_visual_cues.remove("Other")
-                    final_visual_cues.append(other_visual_cue)
+#                 # Handle art mediums - replace "Other" with custom text
+#                 final_art_mediums = art_mediums.copy() if isinstance(art_mediums, list) else [art_mediums]
+#                 if "Other" in final_art_mediums and other_art_medium:
+#                     final_art_mediums.remove("Other")
+#                     final_art_mediums.append(other_art_medium)
 
-                # Handle concerns - replace "Other" with custom text
-                final_concerns = concerns.copy() if isinstance(concerns, list) else [concerns]
-                if "Other" in final_concerns and other_concern:
-                    final_concerns.remove("Other")
-                    final_concerns.append(other_concern)
+#                 # Handle visual cues - replace "Other" with custom text
+#                 final_visual_cues = visual_cues.copy() if isinstance(visual_cues, list) else [visual_cues]
+#                 if "Other" in final_visual_cues and other_visual_cue:
+#                     final_visual_cues.remove("Other")
+#                     final_visual_cues.append(other_visual_cue)
 
-                # Handle emotions - replace "Other" with custom text
-                final_emotions = emotions.copy() if isinstance(emotions, list) else [emotions]
-                if "Other" in final_emotions and other_emotion:
-                    final_emotions.remove("Other")
-                    final_emotions.append(other_emotion)
+#                 # Handle concerns - replace "Other" with custom text
+#                 final_concerns = concerns.copy() if isinstance(concerns, list) else [concerns]
+#                 if "Other" in final_concerns and other_concern:
+#                     final_concerns.remove("Other")
+#                     final_concerns.append(other_concern)
 
-                # Update participant info with comprehensive survey data
-                survey_data = {
-                    "user_type": final_user_type,
-                    "years_experience": years_experience,
-                    "art_mediums": final_art_mediums,
-                    "ai_familiarity": ai_familiarity,
-                    "ai_frequency": ai_frequency,
-                    "difficulty": difficulty,
-                    "visual_cues": final_visual_cues,
-                    "hardest_styles": hardest_styles,
-                    "labeling_importance": labeling_importance,
-                    "encountered_unlabeled": encountered_unlabeled,
-                    "concerns": final_concerns,
-                    "detection_value": detection_value,
-                    "visibility_impact": visibility_impact,
-                    "emotions": final_emotions,
-                    "additional_comments": additional_comments
-                }
-                st.session_state.participant_info.update(survey_data)
-                register_participant(engine, st.session_state.participant_id, st.session_state.participant_info)
-                st.session_state.survey_completed = True
-                st.session_state.test_stage = "results"
-                st.rerun()
+#                 # Handle emotions - replace "Other" with custom text
+#                 final_emotions = emotions.copy() if isinstance(emotions, list) else [emotions]
+#                 if "Other" in final_emotions and other_emotion:
+#                     final_emotions.remove("Other")
+#                     final_emotions.append(other_emotion)
 
-    st.stop()
-"""
+#                 # Update participant info with comprehensive survey data
+#                 survey_data = {
+#                     "user_type": final_user_type,
+#                     "years_experience": years_experience,
+#                     "art_mediums": final_art_mediums,
+#                     "ai_familiarity": ai_familiarity,
+#                     "ai_frequency": ai_frequency,
+#                     "difficulty": difficulty,
+#                     "visual_cues": final_visual_cues,
+#                     "hardest_styles": hardest_styles,
+#                     "labeling_importance": labeling_importance,
+#                     "encountered_unlabeled": encountered_unlabeled,
+#                     "concerns": final_concerns,
+#                     "detection_value": detection_value,
+#                     "visibility_impact": visibility_impact,
+#                     "emotions": final_emotions,
+#                     "additional_comments": additional_comments
+#                 }
+#                 st.session_state.participant_info.update(survey_data)
+#                 register_participant(engine, st.session_state.participant_id, st.session_state.participant_info)
+#                 st.session_state.survey_completed = True
+#                 st.session_state.test_stage = "results"
+#                 st.rerun()
+
+#     st.stop()
+
 
 
 
