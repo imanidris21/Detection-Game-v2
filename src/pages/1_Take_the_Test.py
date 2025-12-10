@@ -342,11 +342,16 @@ if st.session_state.test_stage == "test":
         max-width: 100% !important;
     }
 
-    /* Artwork image with photo frame */
+    /* Page title alignment */
+    .main h1 {
+        margin-left: 100px !important;
+    }
+
+    /* Artwork image with photo frame - simple individual margin approach */
     .stImage {
         position: relative !important;
         display: inline-block !important;
-        margin-left: 100px !important;  /* Move image and frame to the right */
+        margin-left: 100px !important;  /* Direct margin for image alignment */
     }
 
 
@@ -456,7 +461,7 @@ if st.session_state.test_stage == "test":
         with col_image_fb:
             current_trial = idx + 1
             total_trials = len(st.session_state.trial_order)
-            st.write(f"**Image {current_trial} of {total_trials}**")
+            st.markdown(f'<p style="margin-left: 100px; font-weight: bold;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
 
             try:
                 pil = Image.open(img_path)
