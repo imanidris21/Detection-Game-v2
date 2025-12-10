@@ -299,7 +299,7 @@ if "last_feedback_data" not in st.session_state:
 
 # some of the fucntion in this section were debugged and improved with the assistance of Claude code AI. all suggestions were reviewed critically and modified as needed.
 
-elif st.session_state.test_stage == "test":
+if st.session_state.test_stage == "test":
     # Create participant ID if not exists
     if st.session_state.participant_id is None:
         pid = make_pid()
