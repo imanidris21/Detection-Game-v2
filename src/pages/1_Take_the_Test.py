@@ -342,10 +342,32 @@ if st.session_state.test_stage == "test":
         max-width: 100% !important;
     }
 
-    /* Artwork image height */
+    /* Artwork image with photo frame */
+    .stImage {
+        position: relative !important;
+        display: inline-block !important;
+    }
+
     .stImage > img {
         max-height: 10vh !important;
         object-fit: contain !important;
+        display: block !important;
+    }
+
+    /* Photo frame overlay */
+    .stImage::after {
+        content: "";
+        position: absolute !important;
+        top: -10px !important;
+        left: -10px !important;
+        width: calc(100% + 20px) !important;
+        height: calc(100% + 20px) !important;
+        background-image: url("https://raw.githubusercontent.com/imanidris21/Detection-Game-v2/main/src/assets/photo_frame.png") !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        pointer-events: none !important;
+        z-index: 2 !important;
     }
 
     /* Style the control panel: The box that says image 1 of 10 */
