@@ -26,11 +26,34 @@ st.markdown("""
 # Simple styling
 st.markdown("""
 <style>
-            
+
+/* Background image */
+.stApp {
+    background-image: url("https://raw.githubusercontent.com/imanidris21/Detection-Game-v2/main/src/assets/home_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Add overlay for better text readability */
+.stApp::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
 /* Force headings to be centered on all viewports */
 div.block-container h1,
 div.block-container h3 {
     text-align: center !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 
