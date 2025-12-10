@@ -49,11 +49,20 @@ st.markdown("""
 }
 
 /* Force headings to be centered on all viewports */
-div.block-container h1,
+div.block-container h1 {
+    text-align: center !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-size: 4rem !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem !important;
+}
+
 div.block-container h3 {
     text-align: center !important;
     color: white !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-size: 1.5rem !important;
 }
 
 
