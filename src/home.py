@@ -65,18 +65,18 @@ div.block-container h3 {
     margin-top: 2rem !important;
 }
 .stButton > button {
-    background-color: white !important;
-    color: #262730 !important;
-    border: 1px solid #d3d3d3 !important;
+    background-color: black !important;
+    color: white !important;
+    border: 2px solid white !important;
     padding: 0.5rem 1.5rem !important;
     border-radius: 8px !important;
     font-weight: 600 !important;
     font-size: 1rem !important;
 }
 .stButton > button:hover {
-    background-color: #ff4b4b !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
     color: white !important;
-    border: 1px solid #ff4b4b !important;
+    border: 2px solid white !important;
 }
 
 /* Center align text in columns */
