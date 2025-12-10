@@ -66,8 +66,17 @@ div.block-container h3 {
 
 col1, col2, col3 = st.columns([3, 1, 3])
 with col2:
-    if st.button("Start the Game", type="primary",use_container_width=True):
-        st.switch_page("pages/1_Take_the_Test.py")
+    if st.button("Start the Game", type="primary", use_container_width=True):
+        # Try different path formats for Streamlit Cloud compatibility
+        try:
+            st.switch_page("pages/1_Take_the_Test.py")
+        except:
+            try:
+                st.switch_page("src/pages/1_Take_the_Test.py")
+            except:
+                # Fallback: redirect using query params
+                st.query_params.page = "test"
+                st.rerun()
 
 
 
