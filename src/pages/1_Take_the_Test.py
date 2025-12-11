@@ -382,8 +382,8 @@ if st.session_state.test_stage == "test":
 
     /* Style the control panel: The box that says image 1 of 10 */
 
-    /* Right column styling - match left column margin */
-    .stColumn:nth-child(2) {
+    /* Right column content styling - match left column margin */
+    .controls-container {
         margin-left: 100px !important;
     }
 
@@ -595,11 +595,13 @@ if st.session_state.test_stage == "test":
         if choice_key not in st.session_state:
             st.session_state[choice_key] = None
 
+        st.markdown('<div class="controls-container">', unsafe_allow_html=True)
+
         # Add spacing to push content to middle
         st.markdown('<div style="height: 15vh;"></div>', unsafe_allow_html=True)
 
         # 1. Main question
-        st.markdown("<h3 style='text-align: center; font-size: 1.5rem;'>Is this artwork AI-generated or Human-made?</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; font-size: 1.3rem;'>Is this artwork AI-generated or Human-made?</h3>", unsafe_allow_html=True)
 
         # 2. Decision buttons side by side (small)
         col_btn1, col_btn2 = st.columns(2)
@@ -673,6 +675,8 @@ if st.session_state.test_stage == "test":
             # Clear choice for next image
             del st.session_state[choice_key]
             st.rerun()
+
+        st.markdown('</div>', unsafe_allow_html=True)
 
 
 
