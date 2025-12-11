@@ -595,7 +595,7 @@ if st.session_state.test_stage == "test":
         st.markdown('<div style="height: 15vh;"></div>', unsafe_allow_html=True)
 
         # 1. Main question
-        st.markdown("### Is this artwork AI-generated or Human-made?")
+        st.markdown("<h3 style='text-align: center;'>Is this artwork AI-generated or Human-made?</h3>", unsafe_allow_html=True)
 
         # 2. Decision buttons side by side (small)
         col_btn1, col_btn2 = st.columns(2)
