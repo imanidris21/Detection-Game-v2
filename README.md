@@ -4,5 +4,5 @@ human or machine?
 
 ## Project links:
 
--  Platform demo: 
+-  Platform demo: https://detection-game-v2.streamlit.app/
  
