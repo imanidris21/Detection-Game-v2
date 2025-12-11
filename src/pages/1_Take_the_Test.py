@@ -364,7 +364,8 @@ if st.session_state.test_stage == "test":
         display: block !important;
     }
 
-    /* Photo frame overlay */
+    /* Photo frame overlay - commented out for testing */
+    /*
     .stImage::after {
         content: "";
         position: absolute !important;
@@ -379,6 +380,7 @@ if st.session_state.test_stage == "test":
         pointer-events: none !important;
         z-index: 2 !important;
     }
+    */
 
     /* Style the control panel: The box that says image 1 of 10 */
 
