@@ -27,8 +27,7 @@ st.markdown("""
 st.markdown("""
 <style>
 
-/* Background image - commented out for testing */
-/*
+/* Background image */
 .stApp {
     background-image: url("https://raw.githubusercontent.com/imanidris21/Detection-Game-v2/main/src/assets/home_bg.jpg");
     background-size: cover;
@@ -36,7 +35,6 @@ st.markdown("""
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-*/
 
 /* Add overlay for better text readability */
 .stApp::before {
