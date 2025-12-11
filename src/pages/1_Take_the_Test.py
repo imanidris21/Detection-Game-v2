@@ -382,6 +382,10 @@ if st.session_state.test_stage == "test":
 
     /* Style the control panel: The box that says image 1 of 10 */
 
+    /* Right column styling - match left column margin */
+    .stColumn:nth-child(2) {
+        margin-left: 100px !important;
+    }
 
     /* Make buttons styling */
     .stButton > button {
