@@ -382,6 +382,7 @@ if st.session_state.test_stage == "test":
 
     /* Style the control panel: The box that says image 1 of 10 */
 
+
     /* Make buttons styling */
     .stButton > button {
         height: 2rem !important;
@@ -589,6 +590,9 @@ if st.session_state.test_stage == "test":
         choice_key = f"choice_{image_id}"
         if choice_key not in st.session_state:
             st.session_state[choice_key] = None
+
+        # Add spacing to push content to middle
+        st.markdown('<div style="height: 15vh;"></div>', unsafe_allow_html=True)
 
         # 1. Main question
         st.markdown("### Is this artwork AI-generated or Human-made?")
