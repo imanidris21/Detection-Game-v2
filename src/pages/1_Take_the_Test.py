@@ -62,7 +62,7 @@ _ = get_global_detector()
 
 # Show main title during test stage
 if st.session_state.get("test_stage") == "test":
-    st.markdown('<h1 style="margin-left: 100px;">The Detection Game: Can You Spot AI-Generated Art?</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="margin-left: 90px;">The Detection Game: Can You Spot AI-Generated Art?</h1>', unsafe_allow_html=True)
 
 
 # Session state for exhibition version (simplified flow)
@@ -346,14 +346,14 @@ if st.session_state.test_stage == "test":
     .main h1,
     [data-testid="stMarkdownContainer"] h1,
     div.block-container h1 {
-        margin-left: 100px !important;
+        margin-left: 90px !important;
     }
 
     /* Artwork image with photo frame - simple individual margin approach */
     .stImage {
         position: relative !important;
         display: inline-block !important;
-        margin-left: 100px !important;  /* Direct margin for image alignment */
+        margin-left: 90px !important;  /* Direct margin for image alignment */
     }
 
 
@@ -384,7 +384,7 @@ if st.session_state.test_stage == "test":
 
     /* Right column content styling - match left column margin */
     .controls-container {
-        margin-left: 100px !important;
+        margin-left: 90px !important;
     }
 
     /* Make buttons styling */
@@ -437,11 +437,11 @@ if st.session_state.test_stage == "test":
     }
 
     .stCheckbox {
-        margin-left: 100px !important;
+        margin-left: 90px !important;
     }
 
     .stProgress {
-        margin-left: 100px !important;
+        margin-left: 90px !important;
     }
 
     /* Hide unnecessary margins */
@@ -468,7 +468,7 @@ if st.session_state.test_stage == "test":
         with col_image_fb:
             current_trial = idx + 1
             total_trials = len(st.session_state.trial_order)
-            st.markdown(f'<p style="margin-left: 100px;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
+            st.markdown(f'<p style="margin-left: 90px;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
 
             try:
                 pil = Image.open(img_path)
@@ -534,7 +534,7 @@ if st.session_state.test_stage == "test":
         # Progress indicator on top of image
         current_trial = idx + 1
         total_trials = len(st.session_state.trial_order)
-        st.markdown(f'<p style="margin-left: 100px;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="margin-left: 90px;">Image {current_trial} of {total_trials}</p>', unsafe_allow_html=True)
 
         try:
             pil = Image.open(img_path)
